@@ -19,6 +19,8 @@ Y$Sub_metering_3 = as.numeric(Y$Sub_metering_3)
 
 
 png(file = "plot4.png", width = 480, height = 480, bg = "transparent")
+
+## set the panel to allow for multiple plots
 par(mfrow=c(2,2))
 with(Y, {
         plot(Time, Global_active_power, type = "l", ylab = "Global Active Power", xlab = "")

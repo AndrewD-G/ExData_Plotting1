@@ -1,15 +1,18 @@
 con <- "./data/household_power_consumption.txt"
 
+## read the data
 X <- read.table(con, header = T, sep = ";")
 
+## clean date
 X$Date =  as.Date(X$Date , "%d/%m/%Y")
 
+## sbuset based on date paramenters
 Y <- X[(X$Date == "2007-02-01" | X$Date == "2007-02-02"),]
 
 Y$Time = strptime(paste(Y$Date, Y$Time), "%Y-%m-%d %H:%M:%S")
 
 
-
+## format the submetering
 Y$Sub_metering_1 = as.numeric(Y$Sub_metering_1)
 Y$Sub_metering_2 = as.numeric(Y$Sub_metering_2)
 Y$Sub_metering_3 = as.numeric(Y$Sub_metering_3)
